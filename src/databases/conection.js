@@ -11,13 +11,13 @@ const sql = require("mssql");
     },
 } */
 const dbSettings = {
-    user: 'admin',
-    password: '1234',
-    server: 'localhost',
-    database: 'RegisterServices',
+    user: 'servicesapp',
+    password: 'Srvrecord$*',
+    server: 'srvservicesapp.database.windows.net',
+    database: 'BDServiceRecord',
     options: {
         encrypt: true,
-        trustServerCertificate: true,
+        trustServerCertificate: false,
     },
 }
 
