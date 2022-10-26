@@ -1,5 +1,15 @@
 import sql from "mssql";
 
+/* const dbSettings = {
+    user: 'admin',
+    password: '1234',
+    server: 'localhost',
+    database: 'RegisterServices',
+    options: {
+        encrypt: true,
+        trustServerCertificate: true,
+    },
+} */
 const dbSettings = {
     user: 'admin',
     password: '1234',
@@ -11,10 +21,11 @@ const dbSettings = {
     },
 }
 
-async function getConection() {
-    const pool = await sql.connect(dbSettings);
-    const result = await pool.request().query("SELECT * FROM tbService");
-    console.log(result)
+export async function getConection() {
+    try {
+        const pool = await sql.connect(dbSettings);
+        return pool;        
+    } catch (error) {
+        console.error(error)
+    }
 }
-
-getConection();
