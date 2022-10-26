@@ -1,4 +1,4 @@
-import sql from "mssql";
+const sql = require("mssql");
 
 /* const dbSettings = {
     user: 'admin',
@@ -21,7 +21,7 @@ const dbSettings = {
     },
 }
 
-export async function getConection() {
+module.exports =  async function getConection() {
     try {
         const pool = await sql.connect(dbSettings);
         return pool;        
