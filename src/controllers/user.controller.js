@@ -2,7 +2,7 @@ const getConection = require("../databases/conection");
 const sql = require("mssql");
 
 
-export const validateUser = async (req, res) => {
+/* export const validateUser = async (req, res) => {
     try {
     const { mail, password } = req.body;
     if( mail == null || password == null){
@@ -27,7 +27,7 @@ export const validateUser = async (req, res) => {
       error: error.message,
     });
   }
-};
+}; */
 
 export const getUsers = async (req, res) => {
   try {
