@@ -17,8 +17,7 @@ export const validateUser = async (req, res) => {
       .input("password", sql.VarChar, password)
       .query("exec pc_validate_user @mail, @password");
 
-    console.log(result);
-    res.status(200).json(result.recordset);
+    res.status(200).json(result.recordset[0]);
   } catch (error) {
     console.error(error);
     res.status(500).json({
@@ -36,8 +35,7 @@ export const getUserById = async (req, res) => {
       .request()
       .input("id", id)
       .query("SELECT * FROM tbUser WHERE id = @id");
-    console.log(result);
-    res.status(200).json(result.recordset);
+    res.status(200).json(result.recordset[0]);
   } catch (error) {
     console.error(error);
     res.status(500).json({
@@ -63,12 +61,3 @@ export const getUsers = async (req, res) => {
   }
 };
 
-/* module.exports = async function createUser(req, res) {
-  try {
-  } catch (error) {
-    return res
-      .status(500)
-      .json({ message: "Server Error", error: error.message });
-  }
-};
- */
