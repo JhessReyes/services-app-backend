@@ -32,7 +32,6 @@ const conection = require("../databases/conection");
 const getUsers = async (req, res) => {
   try {
     const pool = await conection.getConection();
-    res.status(200).json(pool);
     const result = await pool.request().query("SELECT 1");
 
     res.status(200).json(result.recordset);
