@@ -17,7 +17,7 @@ const dbSettings = {
   database: "BDServiceRecord",
   options: {
     encrypt: true,
-    trustServerCertificate: false,
+    trustServerCertificate: true,
   },
 };
 
