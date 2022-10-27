@@ -29,7 +29,7 @@ const sql = require("mssql");
   }
 }; */
 
-export const getUsers = async (request, res) => {
+module.exports = getUsers = async (req, res) => {
   try {
     const pool = await getConection();
     const result = await pool.request().query("SELECT * FROM tbUser");

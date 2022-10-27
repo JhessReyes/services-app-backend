@@ -13,7 +13,7 @@ const sql = require("mssql");
 const dbSettings = {
     user: 'servicesapp',
     password: 'Srvrecord$*',
-    server: 'srvservicesapp.database.windows.net',
+    server: 'srvservices.database.windows.net',
     database: 'BDServiceRecord',
     options: {
         encrypt: true,
@@ -21,7 +21,7 @@ const dbSettings = {
     },
 }
 
-export async function getConection() {
+module.exports = async function getConection() {
     try {
         const pool = await sql.connect(dbSettings);
         return pool;        
