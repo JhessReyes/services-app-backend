@@ -1,0 +1,10 @@
+@api = http://localhost:3000/validateUser
+
+####
+POST {{api}}
+Content-Type: application/json
+
+{
+    "mail": "jhonatan@gmail.com",
+    "password": "admin"
+}
