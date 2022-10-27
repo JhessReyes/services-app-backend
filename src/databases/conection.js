@@ -1,6 +1,6 @@
-const sql = require("mssql");
+/* const sql = require("mssql"); */
 
-const dbSettings = {
+/* const dbSettings = {
     user: 'admin',
     password: '1234',
     server: 'localhost',
@@ -9,7 +9,7 @@ const dbSettings = {
         encrypt: true,
         trustServerCertificate: true,
     },
-}
+} */
 /* const dbSettings = {
     user: 'servicesapp',
     password: 'Srvrecord$*',
@@ -21,11 +21,11 @@ const dbSettings = {
     },
 }
  */
-module.exports =  async function getConection() {
+/* module.exports =  async function getConection() {
     try {
         const pool = await sql.connect(dbSettings);
         return pool;        
     } catch (error) {
         console.error(error)
     }
-}
+} */
