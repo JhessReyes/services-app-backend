@@ -1,8 +1,7 @@
 const express = require("express");
 const config = require("./config.js");
-import userRoutes from "./routes/user.routes.js";
 const bodyParser = require('body-parser')
-/* const userRoutes = require("./routes/user.routes.js"); */
+const userRoutes = require("./routes/user.routes.js");
 
 const app = express();
 
