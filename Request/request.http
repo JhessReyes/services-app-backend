@@ -8,6 +8,15 @@ Content-Type: application/json
     "mail": "jhonatan@gmail.com",
     "password": "admin"
 }
+###
+POST {{api}}/insertUser
+Content-Type: application/json
+
+{
+    "name": "Jhon",
+    "mail": "jhon@gmail.com",
+    "password": "admin"
+}
 
 ###
 GET {{api}}/getUser/1
