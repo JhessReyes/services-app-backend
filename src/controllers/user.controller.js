@@ -31,8 +31,8 @@ const sql = require("mssql");
 
 module.exports = getUsers = async (req, res) => {
   try {
-    const pool = await getConection();
-    const result = await pool.request().query("SELECT * FROM tbUser");
+    /* const pool = await getConection();
+    const result = await pool.request().query("SELECT * FROM tbUser"); */
 
     res.status(200).json(result.recordset);
   } catch (error) {
