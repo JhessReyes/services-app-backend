@@ -1,4 +1,4 @@
-/* const sql = require("mssql"); */
+const sql = require("mssql");
 
 /* const dbSettings = {
     user: 'admin',
@@ -10,7 +10,7 @@
         trustServerCertificate: true,
     },
 } */
-/* const dbSettings = {
+const dbSettings = {
     user: 'servicesapp',
     password: 'Srvrecord$*',
     server: 'srvservicesapp.database.windows.net',
@@ -20,12 +20,12 @@
         trustServerCertificate: false,
     },
 }
- */
-/* module.exports =  async function getConection() {
+
+module.exports =  async function getConection() {
     try {
         const pool = await sql.connect(dbSettings);
         return pool;        
     } catch (error) {
         console.error(error)
     }
-} */
+}
