@@ -1,7 +1,7 @@
 /* const getConection = require("../databases/conection"); */
 /* const sql = require("mssql"); */
 
-export const validateUser = async (req, res) => {
+module.exports = async function validateUser (req, res) {
   try {
 /*     const pool = await getConection();
     const result = await pool
