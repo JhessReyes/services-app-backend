@@ -31,8 +31,7 @@ import { getConection } from "../databases/conection";
 
 const getUsers = async (req, res) => {
   try {
-    const pool = await getConection();
-    const result = await pool.request().query("SELECT 1");
+    const result = await getConection().request().query("SELECT 1");
 
     res.status(200).json(result.recordset);
   } catch (error) {
