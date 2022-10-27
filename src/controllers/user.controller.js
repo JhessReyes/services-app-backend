@@ -33,12 +33,12 @@ export const getUsers = async (req, res) => {
   try {
     const pool = await getConection();
     const result = await pool.request().query("SELECT * FROM tbUser");
-    console.log(result);
+
     res.status(200).json(result.recordset);
   } catch (error) {
     console.error(error);
     res.status(500).json({
-      message: "Server Error",
+      message: "Server Errosr",
       error: error.message,
     });
   }
