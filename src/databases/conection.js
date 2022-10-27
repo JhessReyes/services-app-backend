@@ -15,10 +15,6 @@ const dbSettings = {
   password: "Srvrecord$*",
   server: "srvservicesapp.database.windows.net",
   database: "BDServiceRecord",
-  options: {
-    encrypt: true,
-    trustServerCertificate: true,
-  },
 };
 
 const getConection = async () => {
