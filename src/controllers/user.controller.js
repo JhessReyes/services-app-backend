@@ -1,50 +1,48 @@
 const getConection = require("../databases/conection");
 const sql = require("mssql");
 
+
 export const validateUser = async (req, res) => {
-  try {
-/*     const pool = await getConection();
+    try {
+    const { mail, password } = req.body;
+    if( mail == null || password == null){
+        return res.status(400).json({
+            message: "Bad Request. Please fill all fields"
+        })
+    }
+
+    const pool = await getConection();
     const result = await pool
       .request()
-      .input("mail", sql.VarChar, "jhonatan@gmail.com")
-      .input("password", sql.VarChar, "admin")
+      .input("mail", sql.VarChar, mail)
+      .input("password", sql.VarChar, password)
       .query("exec pc_validate_user @mail, @password");
+
     console.log(result);
     res.status(200).json(result.recordset);
- */
-    res.json({
-        status: 200,
-        message: "Get data successful validate",
-      });
   } catch (error) {
+    console.error(error);
     res.status(500).json({
       message: "Server Error",
-      error: error.message
+      error: error.message,
     });
   }
 };
 
-export const getUser = async(req, res) => {
+export const getUsers = async (req, res) => {
   try {
-/*     const pool = await getConection();
-    const result = await pool.request().query("SELECT * FROM tbUser"); */
-/*     console.log(result);
-    res.status(200).json(result.recordset); */
-      res.json({
-      status: 200,
-      message: "Get data successful",
-    });
+    const pool = await getConection();
+    const result = await pool.request().query("SELECT * FROM tbUser");
+
+    console.log(result);
+    res.status(200).json(result.recordset);
   } catch (error) {
     console.error(error);
-    return res.status(500).send({
+    res.status(500).json({
       message: "Server Error",
-      error: error.message
+      error: error.message,
     });
   }
-/*       const pool = await getConection();    
-    const result = await pool.request().query("SELECT 1");
-    console.log(result)
-    res.json(result.recordset) */
 };
 
 /* module.exports = async function createUser(req, res) {
