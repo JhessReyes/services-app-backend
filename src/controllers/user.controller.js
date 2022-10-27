@@ -10,7 +10,7 @@ export const validateUser = async (req, res) => {
             message: "Bad Request. Please fill all fields"
         })
     }
-
+    console.log(req.body)
     const pool = await getConection();
     const result = await pool
       .request()
@@ -33,7 +33,7 @@ export const getUsers = async (req, res) => {
   try {
     const pool = await getConection();
     const result = await pool.request().query("SELECT * FROM tbUser");
-
+    console.log(req.body)
     console.log(result);
     res.status(200).json(result.recordset);
   } catch (error) {
