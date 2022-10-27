@@ -1,6 +1,6 @@
-const config = require("dotenv");
-/* config(); */
+import { config } from "dotenv";
+config();
 
-module.exports =  {
+module.exports = {
   port: process.env.PORT || 3000,
 };
