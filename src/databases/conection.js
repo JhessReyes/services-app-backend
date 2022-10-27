@@ -13,7 +13,7 @@ const sql = require("mssql");
 const dbSettings = {
   user: "servicesapp",
   password: "Srvrecord$*",
-  server: "srvservices.database.windows.net",
+  server: "srvservicesapp.database.windows.net",
   database: "BDServiceRecord",
   options: {
     encrypt: true,
