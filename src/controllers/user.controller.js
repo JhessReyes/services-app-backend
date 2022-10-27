@@ -32,13 +32,13 @@ const sql = require("mssql");
 module.exports = getUsers = async (req, res) => {
   try {
     const pool = await getConection();
-    /* const result = await pool.request().query("SELECT * FROM tbUser"); */
+    const result = await pool.request().query("SELECT 1");
 
-    res.status(200).json(req);
+    res.status(200).json(result.recordset);
   } catch (error) {
     console.error(error);
     res.status(500).json({
-      message: "Server Errosr",
+      message: "Server Error",
       error: error.message,
     });
   }
