@@ -11,21 +11,22 @@ const sql = require("mssql");
     },
 } */
 const dbSettings = {
-    user: 'servicesapp',
-    password: 'Srvrecord$*',
-    server: 'srvservices.database.windows.net',
-    database: 'BDServiceRecord',
-    options: {
-        encrypt: true,
-        trustServerCertificate: false,
-    },
-}
+  user: "servicesapp",
+  password: "Srvrecord$*",
+  server: "srvservices.database.windows.net",
+  database: "BDServiceRecord",
+  options: {
+    encrypt: true,
+    trustServerCertificate: false,
+  },
+};
 
-export async function getConection() {
-    try {
-        const pool = await sql.connect(dbSettings);
-        return pool;        
-    } catch (error) {
-        console.error(error)
-    }
+const getConection = async () => {
+  try {
+    const pool = await sql.connect(dbSettings);
+    return pool;
+  } catch (error) {
+    console.error(error);
+  }
 }
+export { getConection };

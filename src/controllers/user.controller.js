@@ -1,6 +1,6 @@
-import { getConection } from "../databases/conection";
-/* const getConection = require("../databases/conection");
- */ /* const sql = require("mssql"); */
+/* import { getConection } from "../databases/conection"; */
+const conection = require("../databases/conection");
+ /* const sql = require("mssql"); */
 
 /* export const validateUser = async (req, res) => {
     try {
@@ -31,7 +31,8 @@ import { getConection } from "../databases/conection";
 
 const getUsers = async (req, res) => {
   try {
-    const result = await getConection().request().query("SELECT 1");
+    const pool = await conection.getConection();
+    const result = await pool.request().query("SELECT 1");
 
     res.status(200).json(result.recordset);
   } catch (error) {
