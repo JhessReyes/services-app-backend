@@ -1,6 +1,6 @@
 const sql = require("mssql");
 
-/* const dbSettings = {
+const dbSettings = {
     user: 'admin',
     password: '1234',
     server: 'localhost',
@@ -9,8 +9,8 @@ const sql = require("mssql");
         encrypt: true,
         trustServerCertificate: true,
     },
-} */
-const dbSettings = {
+}
+/* const dbSettings = {
     user: 'servicesapp',
     password: 'Srvrecord$*',
     server: 'srvservicesapp.database.windows.net',
@@ -19,7 +19,7 @@ const dbSettings = {
         encrypt: true,
         trustServerCertificate: false,
     },
-}
+} */
 
 module.exports =  async function getConection() {
     try {
