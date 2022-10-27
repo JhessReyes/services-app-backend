@@ -1,4 +1,4 @@
-const getConection = require("../databases/conection");
+import { getConection } from "../databases/conection";
 const sql = require("mssql");
 
 
