@@ -1,6 +1,5 @@
-import { getConection } from "../databases/conection";
-/* const getConection = require("../databases/conection");
- */ /* const sql = require("mssql"); */
+const getConection = require("../databases/conection");
+/* const sql = require("mssql"); */
 
 /* export const validateUser = async (req, res) => {
     try {
@@ -29,7 +28,7 @@ import { getConection } from "../databases/conection";
   }
 }; */
 
-module.exports = getUsers = async (req, res) => {
+const getUsers = async (req, res) => {
   try {
     const pool = await getConection();
     const result = await pool.request().query("SELECT 1");
@@ -43,6 +42,8 @@ module.exports = getUsers = async (req, res) => {
     });
   }
 };
+
+export { getUsers };
 
 /* module.exports = async function createUser(req, res) {
   try {
