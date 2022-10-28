@@ -54,6 +54,9 @@ Content-Type: application/json
     "table_name": "tbUser"
 }
 
+
+
+
 ###
 //REQUEST PARA TABLA METHODPAYMENT
 //todos los campos son requeridos
@@ -63,4 +66,14 @@ Content-Type: application/json
 {
     "name": "contado",
     "user_id": "1"
+}
+
+###
+//todos los campos son requeridos
+PUT  {{api}}/updateMethodPayment
+Content-Type: application/json
+
+{
+    "id": "2",
+    "name": "contados"
 }

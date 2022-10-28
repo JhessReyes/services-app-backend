@@ -1,9 +1,9 @@
 import Router from "express";
-import { inserMethodPayment } from "../controllers/methodPayment.controller";
-
+import { insertMethodPayment, updateMethodPayment } from "../controllers/methodPayment.controller";
 
 const router = Router();
 
-router.post("/insertMethodPayment", inserMethodPayment);
+router.post("/insertMethodPayment", insertMethodPayment);
+router.put("/updateMethodPayment", updateMethodPayment);
 
 export default router;
