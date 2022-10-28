@@ -45,6 +45,33 @@ export const getUserById = async (req, res) => {
   }
 };
 
+export const updateUser = async (req, res) => {
+  try {
+    const { id, name, mail, password } = req.body;
+    if (id == null) {
+      return res.status(400).json({
+        message: "Bad Request. (id) is required",
+      });
+    }
+
+    const pool = await getConection();
+    const result = await pool
+      .request()
+      .input("id", id)
+      .input("name", sql.VarChar, name)
+      .input("mail", sql.VarChar, mail)
+      .input("password", sql.VarChar, password)
+      .query("exec pc_update_user @id, @name, @mail, @password");
+    res.status(200).json(result.recordset[0]);
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({
+      message: "Server Error",
+      error: error.message,
+    });
+  }
+};
+
 export const insertUser = async (req, res) => {
   try {
     const { name, mail, password } = req.body;
@@ -86,4 +113,3 @@ export const getUsers = async (req, res) => {
     });
   }
 };
-

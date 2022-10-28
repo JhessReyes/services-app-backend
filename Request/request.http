@@ -1,6 +1,14 @@
 @api = http://localhost:3000
 
 ###
+GET {{api}}/getUsers
+Content-Type: application/json
+
+{
+}
+
+###
+//todos los campos son requeridos
 POST {{api}}/validateUser
 Content-Type: application/json
 
@@ -9,6 +17,7 @@ Content-Type: application/json
     "password": "admin"
 }
 ###
+//todos los campos son requeridos
 POST {{api}}/insertUser
 Content-Type: application/json
 
@@ -17,12 +26,19 @@ Content-Type: application/json
     "mail": "jhon@gmail.com",
     "password": "admin"
 }
-
 ###
-GET {{api}}/getUser/1
+//todos los campos pueden ser opcionales, menos id
+PUT {{api}}/updateUser
 Content-Type: application/json
 
 {
-    "mail": "jhonatan@gmail.com",
+    "id": "4",
+    "name": "Jhonatan",
+    "mail": "jhon@gmail.com",
     "password": "admin"
 }
+
+
+###
+//solo se manda id en URL
+GET {{api}}/getUser/4

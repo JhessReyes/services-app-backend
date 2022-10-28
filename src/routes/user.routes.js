@@ -4,12 +4,13 @@ import {
   getUsers,
   getUserById,
   insertUser,
+  updateUser,
 } from "../controllers/user.controller";
 
 const router = Router();
 router.get("/getUsers", getUsers);
 router.get("/getUser/:id", getUserById);
-/* router.put("/updateUser", ) */
+router.put("/updateUser", updateUser)
 router.post("/insertUser", insertUser);
 router.post("/validateUser", validateUser);
 
