@@ -44,7 +44,7 @@ GET {{api}}/getUser/4
 
 // REQUEST PARA CAMBIO DE STATUS PARA CUALQUIER TABLA
 ###
-//todos los campos pueden requeridos
+//todos los campos son requeridos
 PUT {{api}}/updateStatus
 Content-Type: application/json
 
@@ -52,4 +52,15 @@ Content-Type: application/json
     "id": "4",
     "condition": false,
     "table_name": "tbUser"
+}
+
+###
+//REQUEST PARA TABLA METHODPAYMENT
+//todos los campos son requeridos
+POST  {{api}}/insertMethodPayment
+Content-Type: application/json
+
+{
+    "name": "contado",
+    "user_id": "1"
 }
