@@ -38,7 +38,18 @@ Content-Type: application/json
     "password": "admin"
 }
 
-
 ###
 //solo se manda id en URL
 GET {{api}}/getUser/4
+
+// REQUEST PARA CAMBIO DE STATUS PARA CUALQUIER TABLA
+###
+//todos los campos pueden requeridos
+PUT {{api}}/updateStatus
+Content-Type: application/json
+
+{
+    "id": "4",
+    "condition": false,
+    "table_name": "tbUser"
+}
