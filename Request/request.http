@@ -1,10 +1,79 @@
-@api = http://localhost:3000/validateUser
+@api = http://localhost:3000
 
-####
-POST {{api}}
+###
+GET {{api}}/getUsers
 Content-Type: application/json
 
 {
-    "mail": "jhonatan@gmail.com",
+}
+
+###
+//todos los campos son requeridos
+POST {{api}}/validateUser
+Content-Type: application/json
+
+{
+    "mail": "jhon@gmail.com",
     "password": "admin"
+}
+###
+//todos los campos son requeridos
+POST {{api}}/insertUser
+Content-Type: application/json
+
+{
+    "name": "Jhon",
+    "mail": "jhon@gmail.com",
+    "password": "admin"
+}
+###
+//todos los campos pueden ser opcionales, menos id
+PUT {{api}}/updateUser
+Content-Type: application/json
+
+{
+    "id": "4",
+    "name": "Jhonatan",
+    "mail": "jhon@gmail.com",
+    "password": "admin"
+}
+
+###
+//solo se manda id en URL
+GET {{api}}/getUser/1
+
+// REQUEST PARA CAMBIO DE STATUS PARA CUALQUIER TABLA
+###
+//todos los campos son requeridos
+PUT {{api}}/updateStatus
+Content-Type: application/json
+
+{
+    "id": "1",
+    "condition": true,
+    "table_name": "tbUser"
+}
+
+
+
+
+###
+//REQUEST PARA TABLA METHODPAYMENT
+//todos los campos son requeridos
+POST  {{api}}/insertMethodPayment
+Content-Type: application/json
+
+{
+    "name": "contado",
+    "user_id": "1"
+}
+
+###
+//todos los campos son requeridos
+PUT  {{api}}/updateMethodPayment
+Content-Type: application/json
+
+{
+    "id": "1",
+    "name": "contados"
 }
