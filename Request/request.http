@@ -154,3 +154,14 @@ Content-Type: application/json
     "id": "1",
     "name": "admin.service.shows"
 }
+
+###
+//REQUEST PARA TABLA tbRoleHasPermission
+//todos los campos son requeridos
+POST  {{api}}/insertRoleHasPermission
+Content-Type: application/json
+
+{
+    "role_id": 1,
+    "permission_id": 1
+}
