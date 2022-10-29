@@ -100,3 +100,26 @@ Content-Type: application/json
     "name": "servicio 2",
     "description": "servicio"
 }
+
+
+###
+//REQUEST PARA TABLA tbServicePrice
+//todos los campos son requeridos
+POST  {{api}}/insertServicePrice
+Content-Type: application/json
+
+{
+    "service_id": "1",
+    "price": "120.50"
+}
+
+###
+//solo id es obligatorio, los demas son opcionales
+PUT  {{api}}/updateServicePrice
+Content-Type: application/json
+
+{
+    "id": "1",
+    "service_id": "1",
+    "price": 205.35
+}

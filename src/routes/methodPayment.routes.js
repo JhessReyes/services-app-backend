@@ -1,5 +1,8 @@
 import Router from "express";
-import { insertMethodPayment, updateMethodPayment } from "../controllers/methodPayment.controller";
+import {
+  insertMethodPayment,
+  updateMethodPayment,
+} from "../controllers/methodPayment.controller";
 
 const router = Router();
 
