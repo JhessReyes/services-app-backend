@@ -77,3 +77,91 @@ Content-Type: application/json
     "id": "1",
     "name": "contados"
 }
+
+###
+//REQUEST PARA TABLA tbService
+//todos los campos son requeridos
+POST  {{api}}/insertService
+Content-Type: application/json
+
+{
+    "name": "Servicio 1",
+    "description": "Mantenimiento de PC",
+    "user_id": "1"
+}
+
+###
+//solo id es obligatorio, los demas son opcionales
+PUT  {{api}}/updateService
+Content-Type: application/json
+
+{
+    "id": "1",
+    "name": "servicio 2",
+    "description": "servicio"
+}
+
+
+###
+//REQUEST PARA TABLA tbServicePrice
+//todos los campos son requeridos
+POST  {{api}}/insertServicePrice
+Content-Type: application/json
+
+{
+    "service_id": "1",
+    "price": "120.50"
+}
+
+###
+//solo id es obligatorio, los demas son opcionales
+PUT  {{api}}/updateServicePrice
+Content-Type: application/json
+
+{
+    "id": "1",
+    "service_id": "1",
+    "price": 205.35
+}
+
+
+###
+//REQUEST PARA TABLA tbRole
+//todos los campos son requeridos
+POST  {{api}}/insertRole
+Content-Type: application/json
+
+{
+    "name": "admin"
+}
+
+###
+//REQUEST PARA TABLA tbPermission
+//todos los campos son requeridos
+POST  {{api}}/insertPermission
+Content-Type: application/json
+
+{
+    "name": "admin.service.show"
+}
+
+###
+//todos los campos son requeridos
+PUT  {{api}}/updatePermission
+Content-Type: application/json
+
+{
+    "id": "1",
+    "name": "admin.service.shows"
+}
+
+###
+//REQUEST PARA TABLA tbRoleHasPermission
+//todos los campos son requeridos
+POST  {{api}}/insertRoleHasPermission
+Content-Type: application/json
+
+{
+    "role_id": 1,
+    "permission_id": 1
+}
