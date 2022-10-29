@@ -5,6 +5,7 @@ import methodPaymentRoutes from "./routes/methodPayment.routes.js";
 import serviceRoutes from "./routes/service.routes.js";
 import servicePriceRoute from "./routes/servicePrice.routes.js";
 import roleRoutes from "./routes/role.routes.js";
+import permissionRoutes from "./routes/permission.routes.js";
 const bodyParser = require("body-parser");
 
 const app = express();
@@ -18,6 +19,7 @@ app.use(
   methodPaymentRoutes,
   serviceRoutes,
   servicePriceRoute,
-  roleRoutes
+  roleRoutes,
+  permissionRoutes
 );
 export default app;

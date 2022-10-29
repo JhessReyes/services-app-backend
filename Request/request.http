@@ -134,3 +134,23 @@ Content-Type: application/json
 {
     "name": "admin"
 }
+
+###
+//REQUEST PARA TABLA tbPermission
+//todos los campos son requeridos
+POST  {{api}}/insertPermission
+Content-Type: application/json
+
+{
+    "name": "admin.service.show"
+}
+
+###
+//todos los campos son requeridos
+PUT  {{api}}/updatePermission
+Content-Type: application/json
+
+{
+    "id": "1",
+    "name": "admin.service.shows"
+}
