@@ -1,7 +1,6 @@
 const sql = require("mssql");
 import config from "../config";
 
-console.log(config.dbPassword);
 const dbSettings = {
   user: config.dbUser,
   password: config.dbPassword,

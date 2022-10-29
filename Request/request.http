@@ -123,3 +123,14 @@ Content-Type: application/json
     "service_id": "1",
     "price": 205.35
 }
+
+
+###
+//REQUEST PARA TABLA tbRole
+//todos los campos son requeridos
+POST  {{api}}/insertRole
+Content-Type: application/json
+
+{
+    "name": "admin"
+}
