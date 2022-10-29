@@ -13,7 +13,7 @@ POST {{api}}/validateUser
 Content-Type: application/json
 
 {
-    "mail": "jhonatan@gmail.com",
+    "mail": "jhon@gmail.com",
     "password": "admin"
 }
 ###
@@ -40,7 +40,7 @@ Content-Type: application/json
 
 ###
 //solo se manda id en URL
-GET {{api}}/getUser/4
+GET {{api}}/getUser/1
 
 // REQUEST PARA CAMBIO DE STATUS PARA CUALQUIER TABLA
 ###
@@ -49,8 +49,8 @@ PUT {{api}}/updateStatus
 Content-Type: application/json
 
 {
-    "id": "4",
-    "condition": false,
+    "id": "1",
+    "condition": true,
     "table_name": "tbUser"
 }
 
@@ -74,6 +74,6 @@ PUT  {{api}}/updateMethodPayment
 Content-Type: application/json
 
 {
-    "id": "2",
+    "id": "1",
     "name": "contados"
 }
