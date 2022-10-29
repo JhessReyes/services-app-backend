@@ -1,6 +1,6 @@
-const express = require( 'express');
-const app = require('./src/app.js');
-/* const app = express(); */
+import express from 'express';
+import app from './src/app.js';
+
 app.listen(app.get('port'));
 
-console.log("Server on Ports ", app.get('port'));
+console.log("Server on Port", app.get('port'));

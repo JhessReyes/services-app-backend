@@ -1,31 +1,23 @@
 const sql = require("mssql");
+import config from "../config";
 
+console.log(config.dbPassword);
 const dbSettings = {
-    user: 'admin',
-    password: '1234',
-    server: 'localhost',
-    database: 'RegisterServices',
-    options: {
-        encrypt: true,
-        trustServerCertificate: true,
-    },
-}
-/* const dbSettings = {
-    user: 'servicesapp',
-    password: 'Srvrecord$*',
-    server: 'srvservicesapp.database.windows.net',
-    database: 'BDServiceRecord',
-    options: {
-        encrypt: true,
-        trustServerCertificate: false,
-    },
-} */
+  user: config.dbUser,
+  password: config.dbPassword,
+  server: config.dbServer,
+  database: config.dbDataBase,
+  options: {
+    encrypt: true,
+    trustServerCertificate: false, //true si el desarrollo es local
+  },
+};
 
-module.exports =  async function getConection() {
-    try {
-        const pool = await sql.connect(dbSettings);
-        return pool;        
-    } catch (error) {
-        console.error(error)
-    }
-}
+module.exports = async function getConection() {
+  try {
+    const pool = await sql.connect(dbSettings);
+    return pool;
+  } catch (error) {
+    console.error(error);
+  }
+};
