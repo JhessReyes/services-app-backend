@@ -9,7 +9,7 @@ import permissionRoutes from "./routes/permission.routes.js";
 import roleHasPermissionRoutes from "./routes/roleHasPermission.routes.js";
 import paymentPeriodRoutes from "./routes/paymentPeriod.routes.js";
 import userHasServiceRoutes from "./routes/userHasService.routes.js";
-
+import userHasRoleRoutes from "./routes/userHasRole.routes.js";
 const bodyParser = require("body-parser");
 
 const app = express();
@@ -27,7 +27,8 @@ app.use(
   permissionRoutes,
   roleHasPermissionRoutes,
   paymentPeriodRoutes,
-  userHasServiceRoutes
+  userHasServiceRoutes,
+  userHasRoleRoutes
 );
 
 export default app;

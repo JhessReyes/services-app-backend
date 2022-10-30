@@ -216,3 +216,15 @@ Content-Type: application/json
     "user_id":1,
     "method_id": 1
 }
+
+
+###
+//REQUEST PARA TABLA tbUserHasService
+//todos los campos son requeridos
+POST  {{api}}/insertUserHasRole
+Content-Type: application/json
+
+{
+    "role_id": 2,
+    "user_id": 1
+}
