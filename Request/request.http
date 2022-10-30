@@ -228,3 +228,25 @@ Content-Type: application/json
     "role_id": 2,
     "user_id": 1
 }
+
+###
+//REQUEST PARA TABLA tbPaymentRecord
+//todos los campos son requeridos
+POST  {{api}}/insertPaymentRecord
+Content-Type: application/json
+
+{
+    "price": 200.30,
+    "user_service_id": 1,
+    "create_user_id": 1
+}
+
+###
+//todos los campos son requeridos
+PUT  {{api}}/updatePaymentRecord
+Content-Type: application/json
+
+{
+    "id": 2,
+    "price": 200.00
+}
