@@ -190,3 +190,29 @@ Content-Type: application/json
     "period": 0,
     "interest": 0.5
 }
+
+###
+//REQUEST PARA TABLA tbUserHasService
+//todos los campos son requeridos
+POST  {{api}}/insertUserHasService
+Content-Type: application/json
+
+{
+    "service_id": 1,
+    "description": "Servicio del usuario Juan",
+    "user_id":1,
+    "method_id": 1
+}
+
+###
+//solo id es obligatorio, los demas son opcionales
+PUT  {{api}}/updateUserHasService
+Content-Type: application/json
+
+{
+    "id": 1,
+    "service_id": 1,
+    "description": "Servicio de Juan",
+    "user_id":1,
+    "method_id": 1
+}
