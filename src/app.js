@@ -11,6 +11,7 @@ import paymentPeriodRoutes from "./routes/paymentPeriod.routes.js";
 import userHasServiceRoutes from "./routes/userHasService.routes.js";
 import userHasRoleRoutes from "./routes/userHasRole.routes.js";
 import paymentRecordRoutes from "./routes/paymentRecord.routes.js";
+import cookieParser from "cookie-parser";
 
 const bodyParser = require("body-parser");
 
@@ -20,6 +21,7 @@ const app = express();
 app.set("port", config.port);
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded());
+app.use(cookieParser());
 app.use(
   userRoutes,
   methodPaymentRoutes,
