@@ -179,3 +179,14 @@ Content-Type: application/json
     "method_id": 1,
     "user_id":1
 }
+
+###
+//solo id es obligatorio, los demas son opcionales
+PUT  {{api}}/updatePaymentPeriod
+Content-Type: application/json
+
+{
+    "id": 1,
+    "period": 0,
+    "interest": 0.5
+}
