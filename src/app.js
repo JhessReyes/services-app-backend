@@ -12,16 +12,18 @@ import userHasServiceRoutes from "./routes/userHasService.routes.js";
 import userHasRoleRoutes from "./routes/userHasRole.routes.js";
 import paymentRecordRoutes from "./routes/paymentRecord.routes.js";
 import cookieParser from "cookie-parser";
-
+const cors = require("cors");
 const bodyParser = require("body-parser");
 
 const app = express();
 
 //setings
 app.set("port", config.port);
+app.use(cors());
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded());
 app.use(cookieParser());
+
 app.use(
   userRoutes,
   methodPaymentRoutes,
@@ -35,5 +37,4 @@ app.use(
   userHasRoleRoutes,
   paymentRecordRoutes
 );
-
 export default app;
