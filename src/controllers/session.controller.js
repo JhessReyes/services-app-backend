@@ -1,17 +1,15 @@
 const getConection = require("../databases/conection");
 const sql = require("mssql");
 
-export const validateSession = async (req, res) => {
+export const validateSession = async (req) => {
   try {
     const { cookies } = req;
 
     if (!cookies.accessToken) {
-      res.sendStatus(401);/* 
       return {
-        status: query.recordset[0].status,
+        status: false,
       };
- */    }
-
+    }
     const pool = await getConection();
     const query = await pool
       .request()
@@ -25,7 +23,7 @@ export const validateSession = async (req, res) => {
   } catch (error) {
     console.error(error);
     return {
-      status: query.recordset[0].status,
+      status: false,
     };
   }
 };

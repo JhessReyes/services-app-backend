@@ -125,17 +125,17 @@ export const insertUser = async (req, res) => {
 
 export const getUsers = async (req, res) => {
   const validado = await validateSession(req);
-  if (validado.status) {
-    try {
-      const pool = await getConection();
-      const result = await pool.request().query("SELECT * FROM tbUser");
-      res.status(200).json(result.recordset);
-    } catch (error) {
-      console.error(error);
-      res.status(500).json({
-        message: "Server Error",
-        error: error.message,
-      });
-    }
-  } else res.status(401).json({ message: "User Unauthorized" });
+  if (!validado.status) res.sendStatus(401);
+
+  try {
+    const pool = await getConection();
+    const result = await pool.request().query("SELECT * FROM tbUser");
+    res.status(200).json(result.recordset);
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({
+      message: "Server Error",
+      error: error.message,
+    });
+  }
 };
