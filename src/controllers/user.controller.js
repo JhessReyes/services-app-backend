@@ -137,5 +137,5 @@ export const getUsers = async (req, res) => {
         error: error.message,
       });
     }
-  } else res.sendStatus(401); /* .json({ message: "User Unauthorized" }); */
+  } else res.status(401).json({ message: "User Unauthorized" });
 };
