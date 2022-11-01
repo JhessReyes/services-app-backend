@@ -33,7 +33,7 @@ app.use(bodyParser.urlencoded());
 app.use(cookieParser());
 
 app.use(
-  (userRoutes, cors),
+  (userRoutes, cors()),
   methodPaymentRoutes,
   serviceRoutes,
   servicePriceRoute,
