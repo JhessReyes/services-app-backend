@@ -26,7 +26,7 @@ app.use(
   })
 );
 
-app.set("trust proxy", 1);
+/* app.set("trust proxy", 1); */
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded());
 app.use(cookieParser());
