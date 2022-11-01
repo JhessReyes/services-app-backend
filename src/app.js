@@ -19,13 +19,13 @@ const app = express();
 
 //setings
 app.set("port", config.port);
-/* app.use(
+app.use(
   cors({
     origin: "https://services-app-frontend.vercel.app",
     credentials: true,
   })
 );
- */
+
 app.options('*', cors())
 app.use(cors());
 app.set("trust proxy", 1);
