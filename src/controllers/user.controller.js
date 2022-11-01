@@ -134,14 +134,13 @@ export const insertUser = async (req, res) => {
 
 export const getUsers = async (req, res) => {
   const { cookies } = req;
-  let token = req.cookies['accessToken']
+  let token = req.cookies["accessToken"];
   console.log(token);
-  const validated = await validateSession(req);
   if (validated.status) {
     try {
       const pool = await getConection();
       const result = await pool.request().query("SELECT * FROM tbUser");
-      res.status(200).json(result.recordset);
+      res.status(200).json({ token });
     } catch (error) {
       console.error(error);
       res.status(500).json({
@@ -149,8 +148,5 @@ export const getUsers = async (req, res) => {
         error: error.message,
       });
     }
-  } else
-    res
-      .status(401)
-      .json({ message: "User Unauthorized", status: false, a: token, as:"ad" });
+  }
 };
