@@ -15,6 +15,7 @@ import cookieParser from "cookie-parser";
 const cors = require("cors");
 const bodyParser = require("body-parser");
 
+const cookiesMiddleware = require("universal-cookie-express");
 const app = express();
 
 //setings
@@ -28,7 +29,7 @@ app.use(
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded());
 app.use(cookieParser());
-
+app.use().use(cookiesMiddleware());
 app.use(
   userRoutes,
   methodPaymentRoutes,
