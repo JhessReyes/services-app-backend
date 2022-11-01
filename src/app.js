@@ -25,15 +25,16 @@ app.set("port", config.port);
     credentials: true,
   })
 );
-app.use(cors()); */
-app.options("*", cors());
+ */
+app.options('*', cors())
+app.use(cors());
 app.set("trust proxy", 1);
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded());
 app.use(cookieParser());
 
 app.use(
-  (userRoutes, cors()),
+  userRoutes,
   methodPaymentRoutes,
   serviceRoutes,
   servicePriceRoute,
