@@ -15,7 +15,7 @@ Content-Type: application/json
 
 {
     "mail": "jhon@gmail.com",
-    "password": "admina"
+    "password": "admin"
 }
 ###
 //todos los campos son requeridos
