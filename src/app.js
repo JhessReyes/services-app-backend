@@ -20,6 +20,7 @@ const app = express();
 
 //setings
 app.set("port", config.port);
+app.options('*', cors())
 app.use(
   cors({
     origin: "https://services-app-frontend.vercel.app",
@@ -27,8 +28,6 @@ app.use(
   })
 );
 
-app.options('*', cors())
-app.use(cors());
 app.set("trust proxy", 1);
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded());
