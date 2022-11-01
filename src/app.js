@@ -32,7 +32,7 @@ app.set("trust proxy", 1);
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded());
 app.use(cookieParser());
-app.use().use(cookiesMiddleware());
+app.use(cookiesMiddleware());
 app.use(
   userRoutes,
   methodPaymentRoutes,
