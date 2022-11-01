@@ -134,7 +134,8 @@ export const insertUser = async (req, res) => {
 
 export const getUsers = async (req, res) => {
   const { cookies } = req;
-  console.log(cookies);
+  let token = req.cookies['accessToken']
+  console.log(token);
   const validated = await validateSession(req);
   if (validated.status) {
     try {
@@ -151,5 +152,5 @@ export const getUsers = async (req, res) => {
   } else
     res
       .status(401)
-      .json({ message: "User Unauthorized", status: false, a: cookies.accessToken, as:"ad" });
+      .json({ message: "User Unauthorized", status: false, a: token, as:"ad" });
 };
