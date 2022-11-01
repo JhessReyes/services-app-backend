@@ -25,8 +25,8 @@ app.use(
     credentials: true,
   })
 );
-
-/* app.set("trust proxy", 1); */
+app.use(cors());
+app.set("trust proxy", 1);
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded());
 app.use(cookieParser());
