@@ -35,11 +35,6 @@ export const validateUser = async (req, res) => {
         res.cookie("userId", resultAux.recordset[0].user_id, {
           httpOnly: true,
         });
-
-        res.setHeader("Access-Control-Allow-Origin", "http://localhost:3000");
-        res.setHeader("Access-Control-Allow-Methods", "GET, POST");
-        res.setHeader("Access-Control-Allow-Credentials", true);
-
         res.status(200).json(resultAux.recordset[0]);
       } else {
         res.status(500).json({
@@ -67,9 +62,6 @@ export const getUserById = async (req, res) => {
         .request()
         .input("id", id)
         .query("SELECT * FROM tbUser WHERE id = @id");
-      res.setHeader("Access-Control-Allow-Origin", "http://localhost:3000");
-      res.setHeader("Access-Control-Allow-Methods", "GET, POST");
-      res.setHeader("Access-Control-Allow-Credentials", true);
       res.status(200).json(result.recordset[0]);
     } catch (error) {
       console.error(error);
