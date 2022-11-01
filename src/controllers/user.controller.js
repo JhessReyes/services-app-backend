@@ -134,7 +134,7 @@ export const insertUser = async (req, res) => {
 
 export const getUsers = async (req, res) => {
   const { cookies } = req;
-  console.log(cookies)
+  console.log(cookies);
   const validated = await validateSession(req);
   if (validated.status) {
     try {
@@ -148,5 +148,8 @@ export const getUsers = async (req, res) => {
         error: error.message,
       });
     }
-  } else res.status(401).json({ message: "User Unauthorized", status: false });
+  } else
+    res
+      .status(401)
+      .json({ message: "User Unauthorized", status: false, a: cookies });
 };
