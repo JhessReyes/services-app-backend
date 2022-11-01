@@ -19,20 +19,21 @@ const app = express();
 
 //setings
 app.set("port", config.port);
-app.use(
+/* app.use(
   cors({
     origin: "https://services-app-frontend.vercel.app",
     credentials: true,
   })
 );
-app.use(cors());
+app.use(cors()); */
+app.options("*", cors());
 app.set("trust proxy", 1);
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded());
 app.use(cookieParser());
 
 app.use(
-  userRoutes,
+  (userRoutes, cors),
   methodPaymentRoutes,
   serviceRoutes,
   servicePriceRoute,
