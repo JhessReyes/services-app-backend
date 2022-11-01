@@ -1,4 +1,4 @@
-@api = http://localhost:3000
+@api = http://localhost:3002
 //@api = https://services-app-backend.vercel.app
 
 ###
@@ -15,7 +15,7 @@ Content-Type: application/json
 
 {
     "mail": "jhon@gmail.com",
-    "password": "admin"
+    "password": "admina"
 }
 ###
 //todos los campos son requeridos

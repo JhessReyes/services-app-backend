@@ -42,7 +42,8 @@ export const validateUser = async (req, res) => {
           message: "something happened while creating session",
         });
       }
-    }
+    } else
+      res.status(401).json({ message: "User Unauthorized", status: false });
   } catch (error) {
     console.error(error);
     res.status(500).json({
