@@ -133,9 +133,8 @@ export const insertUser = async (req, res) => {
 };
 
 export const getUsers = async (req, res) => {
-  const { cookies } = req;
-  let token = req.cookies["accessToken"];
-  console.log(token);
+  console.log(req.accessToken);
+  const validated = await validateSession(req);
   if (validated.status) {
     try {
       const pool = await getConection();
