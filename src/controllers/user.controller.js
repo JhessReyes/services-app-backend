@@ -151,5 +151,5 @@ export const getUsers = async (req, res) => {
   } else
     res
       .status(401)
-      .json({ message: "User Unauthorized", status: false, a: cookies.accessToken });
+      .json({ message: "User Unauthorized", status: false, a: cookies.accessToken, as:"ad" });
 };
