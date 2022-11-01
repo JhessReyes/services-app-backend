@@ -20,11 +20,12 @@ const app = express();
 
 //setings
 app.set("port", config.port);
-app.options('*', cors())
+app.options("*", cors());
 app.use(
   cors({
     origin: "https://services-app-frontend.vercel.app",
     credentials: true,
+    methods: ["GET", "POST", "DELETE", "UPDATE", "PUT", "PATCH"],
   })
 );
 
