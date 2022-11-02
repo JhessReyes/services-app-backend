@@ -23,7 +23,7 @@ const app = express();
 app.set("port", config.port);
 app.use(
   cors({
-    origin: "https://services-app-frontend.vercel.app",
+    origin: "http://localhost:3000",
     credentials: true,
     methods: ["GET", "POST", "DELETE", "UPDATE", "PUT", "PATCH"],
   })
