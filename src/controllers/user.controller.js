@@ -133,19 +133,18 @@ export const insertUser = async (req, res) => {
 };
 
 export const getUsers = async (req, res) => {
+  let token = req.accessToken;
   console.log(req.accessToken);
-  const validated = await validateSession(req);
-  if (validated.status) {
-    try {
-      const pool = await getConection();
-      const result = await pool.request().query("SELECT * FROM tbUser");
-      res.status(200).json({ token });
-    } catch (error) {
-      console.error(error);
-      res.status(500).json({
-        message: "Server Error",
-        error: error.message,
-      });
-    }
+
+  try {
+    const pool = await getConection();
+    const result = await pool.request().query("SELECT * FROM tbUser");
+    res.status(200).json({ token });
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({
+      message: "Server Error",
+      error: error.message,
+    });
   }
 };
