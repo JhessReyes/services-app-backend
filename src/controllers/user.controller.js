@@ -133,8 +133,8 @@ export const insertUser = async (req, res) => {
 };
 
 export const getUsers = async (req, res) => {
-  let token = req.accessToken;
-  console.log(req.accessToken);
+  let token = req.cookies.accessToken;
+  console.log(req.cookies.accessToken);
 
   try {
     const pool = await getConection();
