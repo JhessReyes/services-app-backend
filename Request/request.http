@@ -175,8 +175,7 @@ Content-Type: application/json
 {
     "period": 0,
     "interest": 0,
-    "method_id": 1,
-    "user_id":1
+    "method_id": 1
 }
 
 ###
