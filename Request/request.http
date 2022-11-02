@@ -65,8 +65,7 @@ POST  {{api}}/insertMethodPayment
 Content-Type: application/json
 
 {
-    "name": "contado",
-    "user_id": "1"
+    "name": "contado"
 }
 
 ###
