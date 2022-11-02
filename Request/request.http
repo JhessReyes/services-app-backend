@@ -43,6 +43,10 @@ Content-Type: application/json
 //solo se manda id en URL
 GET {{api}}/getUser/1
 
+###
+//solo se manda id en URL
+GET {{api}}/getEntityById/tbService/3
+
 // REQUEST PARA CAMBIO DE STATUS PARA CUALQUIER TABLA
 ###
 //todos los campos son requeridos

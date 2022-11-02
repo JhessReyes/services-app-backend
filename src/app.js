@@ -11,6 +11,7 @@ import paymentPeriodRoutes from "./routes/paymentPeriod.routes.js";
 import userHasServiceRoutes from "./routes/userHasService.routes.js";
 import userHasRoleRoutes from "./routes/userHasRole.routes.js";
 import paymentRecordRoutes from "./routes/paymentRecord.routes.js";
+import helperRoutes from "./routes/helper.routes.js";
 import cookieParser from "cookie-parser";
 const cors = require("cors");
 const bodyParser = require("body-parser");
@@ -41,6 +42,7 @@ app.use(
   paymentPeriodRoutes,
   userHasServiceRoutes,
   userHasRoleRoutes,
-  paymentRecordRoutes
+  paymentRecordRoutes,
+  helperRoutes
 );
 export default app;
