@@ -118,8 +118,8 @@ PUT  {{api}}/updateServicePrice
 Content-Type: application/json
 
 {
-    "id": "1",
-    "service_id": "1",
+    "id": "2",
+    "service_id": "3",
     "price": 205.35
 }
 
