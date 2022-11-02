@@ -235,8 +235,7 @@ Content-Type: application/json
 
 {
     "price": 200.30,
-    "user_service_id": 1,
-    "create_user_id": 1
+    "user_service_id": 2
 }
 
 ###
