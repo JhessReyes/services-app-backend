@@ -1,3 +1,5 @@
+import { log, validateSession } from "./session.controller";
+
 const getConection = require("../databases/conection");
 const sql = require("mssql");
 
@@ -17,6 +19,14 @@ export const insertPermission = async (req, res) => {
         .request()
         .input("name", sql.VarChar, name)
         .query("exec pc_insert_permission @name");
+      if (result.recordset[0].status) {
+        const logAdd = await log(
+          validated.user_id,
+          "insert",
+          "tbPermission",
+          null
+        );
+      }
       res.status(200).json(result.recordset[0]);
     } catch (error) {
       console.error(error);
@@ -45,6 +55,15 @@ export const updatePermission = async (req, res) => {
         .input("id", id)
         .input("name", sql.VarChar, name)
         .query("exec pc_update_permission @id, @name");
+
+      if (result.recordset[0].status) {
+        const logAdd = await log(
+          validated.user_id,
+          "update",
+          "tbPermission",
+          id
+        );
+      }
       res.status(200).json(result.recordset[0]);
     } catch (error) {
       console.error(error);

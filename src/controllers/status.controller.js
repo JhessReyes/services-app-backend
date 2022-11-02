@@ -1,3 +1,5 @@
+import { log, validateSession } from "./session.controller";
+
 const getConection = require("../databases/conection");
 const sql = require("mssql");
 
@@ -20,6 +22,14 @@ export const statusChange = async (req, res) => {
         .input("table_name", sql.VarChar, table_name)
         .query("exec pc_status_change @id, @condition, @table_name");
 
+      if (result.recordset[0].status) {
+        const logAdd = await log(
+          validated.user_id,
+          "update",
+          table_name,
+          id
+        );
+      }
       res.status(200).json(result.recordset[0]);
     } catch (error) {
       console.error(error);

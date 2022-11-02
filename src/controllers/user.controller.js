@@ -1,7 +1,7 @@
 const getConection = require("../databases/conection");
 const sql = require("mssql");
 import { nanoid } from "nanoid";
-import { validateSession } from "./session.controller";
+import { log, validateSession } from "./session.controller";
 
 export const validateUser = async (req, res) => {
   try {
@@ -121,6 +121,10 @@ export const insertUser = async (req, res) => {
         .input("mail", sql.VarChar, mail)
         .input("password", sql.VarChar, password)
         .query("exec pc_insert_user @name, @mail, @password");
+
+      if (result.recordset[0].status) {
+        const logAdd = await log(validated.user_id, "insert", "tbUser", null);
+      }
       res.status(200).json(result.recordset[0]);
     } catch (error) {
       console.error(error);

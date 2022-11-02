@@ -1,3 +1,4 @@
+import { validateSession } from "./session.controller";
 const getConection = require("../databases/conection");
 const sql = require("mssql");
 
@@ -5,8 +6,8 @@ export const insertService = async (req, res) => {
   const validated = await validateSession(req);
   if (validated.status) {
     try {
-      const { name, description, user_id } = req.body;
-      if (name == null || description == null || user_id == null) {
+      const { name, description } = req.body;
+      if (name == null || description == null) {
         return res.status(400).json({
           message: "Bad Request. Please fill all fields",
         });
@@ -17,8 +18,19 @@ export const insertService = async (req, res) => {
         .request()
         .input("name", sql.VarChar, name)
         .input("description", sql.Text, description)
-        .input("user_id", sql.Int, user_id)
+        .input("user_id", sql.Int, validated.user_id)
         .query("exec pc_insert_service @name, @description, @user_id");
+
+      if (result.recordset[0].status) {
+        const log = await pool
+          .request()
+          .input("user_id", sql.Int, validated.user_id)
+          .input("action", sql.VarChar, "insert")
+          .input("table_name", sql.VarChar, "tbService")
+          .input("table_id", null)
+          .query("exec pc_log @user_id, @action, @table_name, @table_id");
+      }
+
       res.status(200).json(result.recordset[0]);
     } catch (error) {
       console.error(error);
@@ -48,6 +60,17 @@ export const updateService = async (req, res) => {
         .input("name", sql.VarChar, name)
         .input("description", sql.VarChar, description)
         .query("exec pc_update_service @id, @name, @description");
+
+      if (result.recordset[0].status) {
+        const log = await pool
+          .request()
+          .input("user_id", sql.Int, validated.user_id)
+          .input("action", sql.VarChar, "update")
+          .input("table_name", sql.VarChar, "tbService")
+          .input("table_id", sql.Int, id)
+          .query("exec pc_log @user_id, @action, @table_name, @table_id");
+      }
+
       res.status(200).json(result.recordset[0]);
     } catch (error) {
       console.error(error);

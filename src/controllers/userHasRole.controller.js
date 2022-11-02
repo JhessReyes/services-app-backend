@@ -1,3 +1,5 @@
+import { log, validateSession } from "./session.controller";
+
 const getConection = require("../databases/conection");
 const sql = require("mssql");
 
@@ -18,6 +20,15 @@ export const insertUserHasRole = async (req, res) => {
         .input("role_id", sql.Int, role_id)
         .input("user_id", sql.Int, user_id)
         .query("exec pc_insert_user_has_role @role_id, @user_id");
+
+      if (result.recordset[0].status) {
+        const logAdd = await log(
+          validated.user_id,
+          "insert",
+          "tbUserHasRole",
+          null
+        );
+      }
       res.status(200).json(result.recordset[0]);
     } catch (error) {
       console.error(error);

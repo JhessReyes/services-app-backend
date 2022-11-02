@@ -1,3 +1,5 @@
+import { log, validateSession } from "./session.controller";
+
 const getConection = require("../databases/conection");
 const sql = require("mssql");
 
@@ -18,6 +20,15 @@ export const insertServicePrice = async (req, res) => {
         .input("service_id", sql.Int, service_id)
         .input("price", sql.Decimal(10, 2), price)
         .query("exec pc_insert_service_price @service_id, @price");
+
+      if (result.recordset[0].status) {
+        const logAdd = await log(
+          validated.user_id,
+          "insert",
+          "tbServicePrice",
+          null
+        );
+      }
       res.status(200).json(result.recordset[0]);
     } catch (error) {
       console.error(error);
@@ -47,6 +58,15 @@ export const updateServicePrice = async (req, res) => {
         .input("service_id", sql.Int, service_id)
         .input("price", sql.Decimal(10, 2), price)
         .query("exec pc_update_service_price @id, @service_id, @price");
+
+      if (result.recordset[0].status) {
+        const logAdd = await log(
+          validated.user_id,
+          "update",
+          "tbServicePrice",
+          id
+        );
+      }
       res.status(200).json(result.recordset[0]);
     } catch (error) {
       console.error(error);
