@@ -95,6 +95,16 @@ Content-Type: application/json
     "name": "Servicio 1",
     "description": "Mantenimiento de PC"
 }
+###
+//todos los campos son requeridos
+POST  {{api}}/newService
+Content-Type: application/json
+
+{
+    "name": "Servici1",
+    "description": "Mantenimiento de PC",
+    "price": 200.50
+}
 
 ###
 //solo id es obligatorio, los demas son opcionales
