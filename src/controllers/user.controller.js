@@ -133,7 +133,6 @@ export const insertUser = async (req, res) => {
 };
 
 export const getUsers = async (req, res) => {
-  console.log(req.cookies.accessToken);
   const validated = await validateSession(req);
   if (validated.status) {
     try {

@@ -3,9 +3,10 @@ const sql = require("mssql");
 
 export const validateSession = async (req) => {
   try {
-    const { cookies } = req;
+    const token = req.headers["x-access-token"];
+    /* const { cookies } = req; */
 
-    if (!cookies.accessToken) {
+    if (!token) {
       return {
         status: false,
       };
@@ -13,7 +14,7 @@ export const validateSession = async (req) => {
     const pool = await getConection();
     const query = await pool
       .request()
-      .input("access_token", sql.VarChar, cookies.accessToken)
+      .input("access_token", sql.VarChar, token)
       .query("exec pc_validate_session @access_token");
 
     return {
