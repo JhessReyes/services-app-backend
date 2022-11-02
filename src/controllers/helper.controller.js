@@ -1,3 +1,4 @@
+import { query } from "express";
 import { validateSession } from "./session.controller";
 
 const getConection = require("../databases/conection");
@@ -33,8 +34,15 @@ export const getObjects = async (req, res) => {
   if (validated.status) {
     try {
       const { tableName } = req.params;
+      let select = "SELECT * FROM " + tableName;
+      if (tableName == "tbService") {
+        select = "SELECT * FROM getServiceWithPrices";
+      } else {
+      }
+
       const pool = await getConection();
-      const result = await pool.request().query("SELECT * FROM " + tableName);
+      const result = await pool.request().query(select);
+
       if (result.recordset[0] == undefined) {
         res.status(404).json({ message: "Object Not Found", status: false });
       } else {
