@@ -96,9 +96,9 @@ PUT  {{api}}/updateService
 Content-Type: application/json
 
 {
-    "id": "1",
-    "name": "servicio 2",
-    "description": "servicio"
+    "id": "3",
+    "name": "servicio 3",
+    "description": "servicisso"
 }
 
 
