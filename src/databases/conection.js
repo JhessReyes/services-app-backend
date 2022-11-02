@@ -8,7 +8,7 @@ const dbSettings = {
   database: config.dbDataBase,
   options: {
     encrypt: true,
-    trustServerCertificate: false, //true si el desarrollo es local
+    trustServerCertificate: true, //true si el desarrollo es local
   },
 };
 

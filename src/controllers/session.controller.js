@@ -3,7 +3,7 @@ const sql = require("mssql");
 
 export const validateSession = async (req) => {
   try {
-    const token = req.headers["x-access-token"];
+    const token = req.headers["x-access-token"] || req.cookies.accessToken;
     /* const { cookies } = req; */
 
     if (!token) {
