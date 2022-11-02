@@ -13,7 +13,11 @@ export const getEntityById = async (req, res) => {
         .request()
         .input("id", id)
         .query("SELECT * FROM " + tableName + " WHERE id = @id");
-      res.status(200).json(result.recordset[0]);
+      if (result.recordset[0] == undefined) {
+        res.status(404).json({ message: "Object Not Found", status: false });
+      } else {
+        res.status(200).json(result.recordset[0]);
+      }
     } catch (error) {
       console.error(error);
       res.status(500).json({
