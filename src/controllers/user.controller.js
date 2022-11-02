@@ -104,8 +104,8 @@ export const updateUser = async (req, res) => {
 };
 
 export const insertUser = async (req, res) => {
-  const validated = await validateSession(req);
-  if (validated.status) {
+  /* const validated = await validateSession(req);
+  if (validated.status) { */
     try {
       const { name, mail, password } = req.body;
       if (name == null || mail == null || password == null) {
@@ -129,7 +129,7 @@ export const insertUser = async (req, res) => {
         error: error.message,
       });
     }
-  } else res.status(401).json({ message: "User Unauthorized", status: false });
+  /* } else res.status(401).json({ message: "User Unauthorized", status: false }); */
 };
 
 export const getUsers = async (req, res) => {

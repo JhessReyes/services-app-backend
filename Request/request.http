@@ -23,8 +23,8 @@ POST {{api}}/insertUser
 Content-Type: application/json
 
 {
-    "name": "Jhon",
-    "mail": "jhon@gmail.com",
+    "name": "Sergio",
+    "mail": "sergio@gmail.com",
     "password": "admin"
 }
 ###
