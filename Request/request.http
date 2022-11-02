@@ -47,7 +47,7 @@ GET {{api}}/getUser/1
 //solo se manda el nombre de la tabla/id en URL
 GET {{api}}/getEntityById/tbService/3
 ###
-//solo se manda id en URL
+//solo se manda el nombre de la tabla en URL
 GET {{api}}/getObjects/tbService
 
 // REQUEST PARA CAMBIO DE STATUS PARA CUALQUIER TABLA
