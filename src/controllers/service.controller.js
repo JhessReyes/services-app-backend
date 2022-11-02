@@ -1,3 +1,4 @@
+import { validateSession } from "./session.controller";
 const getConection = require("../databases/conection");
 const sql = require("mssql");
 
@@ -5,8 +6,8 @@ export const insertService = async (req, res) => {
   const validated = await validateSession(req);
   if (validated.status) {
     try {
-      const { name, description, user_id } = req.body;
-      if (name == null || description == null || user_id == null) {
+      const { name, description } = req.body;
+      if (name == null || description == null) {
         return res.status(400).json({
           message: "Bad Request. Please fill all fields",
         });
@@ -17,7 +18,7 @@ export const insertService = async (req, res) => {
         .request()
         .input("name", sql.VarChar, name)
         .input("description", sql.Text, description)
-        .input("user_id", sql.Int, user_id)
+        .input("user_id", sql.Int, validated.user_id)
         .query("exec pc_insert_service @name, @description, @user_id");
       res.status(200).json(result.recordset[0]);
     } catch (error) {

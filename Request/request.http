@@ -87,8 +87,7 @@ Content-Type: application/json
 
 {
     "name": "Servicio 1",
-    "description": "Mantenimiento de PC",
-    "user_id": "1"
+    "description": "Mantenimiento de PC"
 }
 
 ###
