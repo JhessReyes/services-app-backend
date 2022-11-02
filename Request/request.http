@@ -14,7 +14,7 @@ POST {{api}}/validateUser
 Content-Type: application/json
 
 {
-    "mail": "jhon@gmail.com",
+    "mail": "sergio@gmail.com",
     "password": "admin"
 }
 ###
