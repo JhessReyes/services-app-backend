@@ -9,6 +9,9 @@ Content-Type: application/json
 }
 
 ###
+GET {{api}}/closeSession
+
+###
 //todos los campos son requeridos
 POST {{api}}/validateUser
 Content-Type: application/json
