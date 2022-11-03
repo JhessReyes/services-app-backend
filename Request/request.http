@@ -17,7 +17,7 @@ POST {{api}}/validateUser
 Content-Type: application/json
 
 {
-    "mail": "sergio@gmail.com",
+    "mail": "jhon@gmail.com",
     "password": "admin"
 }
 ###
@@ -48,7 +48,11 @@ GET {{api}}/getUser/1
 
 ###
 //solo se manda el nombre de la tabla/id en URL
-GET {{api}}/getEntityById/tbService/3
+GET {{api}}/getEntityById/tbUserHasRole/1
+
+###
+//solo se manda el nombre de la tabla/id en URL
+GET {{api}}/getRole/1
 ###
 //solo se manda el nombre de la tabla en URL
 GET {{api}}/getObjects/tbService

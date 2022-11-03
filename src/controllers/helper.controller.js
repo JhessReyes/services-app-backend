@@ -94,3 +94,27 @@ export const getCountStatus = async (req, res) => {
     }
   } else res.status(401).json({ message: "User Unauthorized", status: false });
 };
+
+export const getRole = async (req, res) => {
+  const validated = await validateSession(req);
+  if (validated.status) {
+    try {
+      const { userId } = req.params;
+      console.log(userId);
+      let select =
+        "SELECT rol.name FROM tbRole rol, tbUser usr, tbUserHasRole usrol WHERE rol.id = usrol.role_id" +
+        " AND usr.id = usrol.user_id" +
+        " AND usr.id LIKE " +
+        userId;
+      const pool = await getConection();
+      const result = await pool.request().query(select);
+      res.status(200).json(result.recordset[0]);
+    } catch (error) {
+      console.error(error);
+      res.status(500).json({
+        message: "Server Error",
+        error: error.message,
+      });
+    }
+  } else res.status(401).json({ message: "User Unauthorized", status: false });
+};
