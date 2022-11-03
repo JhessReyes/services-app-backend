@@ -39,16 +39,42 @@ export const getObjects = async (req, res) => {
         select = "SELECT * FROM getServiceWithPrices";
       } else if (tableName == "getUserHasService") {
         select = "SELECT * FROM getUserHasService";
+      } else if (tableName == "reportAmountUserService") {
+        select = "SELECT * FROM reportAmountUserService";
       }
 
       const pool = await getConection();
       const result = await pool.request().query(select);
       res.status(200).json(result.recordset);
-/*       if (result.recordset[0] == undefined) {
+      /*       if (result.recordset[0] == undefined) {
         res.status(404).json({ message: "Object Not Found", status: false });
       } else {
         res.status(200).json(result.recordset);
       } */
+    } catch (error) {
+      console.error(error);
+      res.status(500).json({
+        message: "Server Error",
+        error: error.message,
+      });
+    }
+  } else res.status(401).json({ message: "User Unauthorized", status: false });
+};
+
+export const getCountStatus = async (req, res) => {
+  const validated = await validateSession(req);
+  if (validated.status) {
+    try {
+      const { tableName } = req.params;
+      let select =
+        "SELECT (SELECT COUNT(*) FROM " +
+        tableName +
+        " WHERE status LIKE 1 ) AS true, (SELECT COUNT(*) FROM " +
+        tableName +
+        " WHERE status LIKE 0 ) AS false";
+      const pool = await getConection();
+      const result = await pool.request().query(select);
+      res.status(200).json(result.recordset[0]);
     } catch (error) {
       console.error(error);
       res.status(500).json({
