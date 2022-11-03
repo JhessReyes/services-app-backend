@@ -33,7 +33,7 @@ PUT {{api}}/updateUser
 Content-Type: application/json
 
 {
-    "id": "4",
+    "id": "1",
     "name": "Jhonatan",
     "mail": "jhon@gmail.com",
     "password": "admin"

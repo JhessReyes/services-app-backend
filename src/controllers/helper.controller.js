@@ -43,12 +43,12 @@ export const getObjects = async (req, res) => {
 
       const pool = await getConection();
       const result = await pool.request().query(select);
-
-      if (result.recordset[0] == undefined) {
+      res.status(200).json(result.recordset);
+/*       if (result.recordset[0] == undefined) {
         res.status(404).json({ message: "Object Not Found", status: false });
       } else {
         res.status(200).json(result.recordset);
-      }
+      } */
     } catch (error) {
       console.error(error);
       res.status(500).json({
