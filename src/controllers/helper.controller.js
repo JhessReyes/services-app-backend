@@ -35,9 +35,10 @@ export const getObjects = async (req, res) => {
     try {
       const { tableName } = req.params;
       let select = "SELECT * FROM " + tableName;
-      if (tableName == "tbService") {
+      if (tableName == "getServiceWithPrices") {
         select = "SELECT * FROM getServiceWithPrices";
-      } else {
+      } else if (tableName == "getUserHasService") {
+        select = "SELECT * FROM getUserHasService";
       }
 
       const pool = await getConection();
