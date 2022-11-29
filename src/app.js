@@ -11,15 +11,29 @@ import paymentPeriodRoutes from "./routes/paymentPeriod.routes.js";
 import userHasServiceRoutes from "./routes/userHasService.routes.js";
 import userHasRoleRoutes from "./routes/userHasRole.routes.js";
 import paymentRecordRoutes from "./routes/paymentRecord.routes.js";
-
+import helperRoutes from "./routes/helper.routes.js";
+import cookieParser from "cookie-parser";
+const cors = require("cors");
 const bodyParser = require("body-parser");
 
+const cookiesMiddleware = require("universal-cookie-express");
 const app = express();
 
 //setings
 app.set("port", config.port);
+app.use(
+  cors({
+    origin: "http://localhost:3000",
+    credentials: true,
+    methods: ["GET", "POST", "DELETE", "UPDATE", "PUT"],
+  })
+);
+
+app.set("trust proxy", 1);
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded());
+app.use(cookieParser());
+app.use(cookiesMiddleware());
 app.use(
   userRoutes,
   methodPaymentRoutes,
@@ -31,7 +45,7 @@ app.use(
   paymentPeriodRoutes,
   userHasServiceRoutes,
   userHasRoleRoutes,
-  paymentRecordRoutes
+  paymentRecordRoutes,
+  helperRoutes
 );
-
 export default app;

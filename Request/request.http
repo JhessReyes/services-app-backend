@@ -1,4 +1,4 @@
-@api = http://localhost:3000
+@api = http://localhost:3002
 //@api = https://services-app-backend.vercel.app
 
 ###
@@ -7,6 +7,9 @@ Content-Type: application/json
 
 {
 }
+
+###
+GET {{api}}/closeSession
 
 ###
 //todos los campos son requeridos
@@ -23,8 +26,8 @@ POST {{api}}/insertUser
 Content-Type: application/json
 
 {
-    "name": "Jhon",
-    "mail": "jhon@gmail.com",
+    "name": "Sergio",
+    "mail": "sergio@gmail.com",
     "password": "admin"
 }
 ###
@@ -33,7 +36,7 @@ PUT {{api}}/updateUser
 Content-Type: application/json
 
 {
-    "id": "4",
+    "id": "1",
     "name": "Jhonatan",
     "mail": "jhon@gmail.com",
     "password": "admin"
@@ -42,6 +45,21 @@ Content-Type: application/json
 ###
 //solo se manda id en URL
 GET {{api}}/getUser/1
+
+###
+//solo se manda el nombre de la tabla/id en URL
+GET {{api}}/getEntityById/tbUserHasRole/1
+
+###
+//solo se manda el nombre de la tabla/id en URL
+GET {{api}}/getRole/1
+###
+//solo se manda el nombre de la tabla en URL
+GET {{api}}/getObjects/tbService
+
+###
+//solo se manda el nombre de la tabla en URL
+GET {{api}}/getCountStatus/tbService
 
 // REQUEST PARA CAMBIO DE STATUS PARA CUALQUIER TABLA
 ###
@@ -65,8 +83,7 @@ POST  {{api}}/insertMethodPayment
 Content-Type: application/json
 
 {
-    "name": "contado",
-    "user_id": "1"
+    "name": "contado"
 }
 
 ###
@@ -87,8 +104,17 @@ Content-Type: application/json
 
 {
     "name": "Servicio 1",
+    "description": "Mantenimiento de PC"
+}
+###
+//todos los campos son requeridos
+POST  {{api}}/newService
+Content-Type: application/json
+
+{
+    "name": "Servici1",
     "description": "Mantenimiento de PC",
-    "user_id": "1"
+    "price": 200.50
 }
 
 ###
@@ -97,9 +123,9 @@ PUT  {{api}}/updateService
 Content-Type: application/json
 
 {
-    "id": "1",
-    "name": "servicio 2",
-    "description": "servicio"
+    "id": "3",
+    "name": "servicio 3",
+    "description": "servicisso"
 }
 
 
@@ -120,8 +146,8 @@ PUT  {{api}}/updateServicePrice
 Content-Type: application/json
 
 {
-    "id": "1",
-    "service_id": "1",
+    "id": "2",
+    "service_id": "3",
     "price": 205.35
 }
 
@@ -177,8 +203,7 @@ Content-Type: application/json
 {
     "period": 0,
     "interest": 0,
-    "method_id": 1,
-    "user_id":1
+    "method_id": 1
 }
 
 ###
@@ -238,8 +263,7 @@ Content-Type: application/json
 
 {
     "price": 200.30,
-    "user_service_id": 1,
-    "create_user_id": 1
+    "user_service_id": 2
 }
 
 ###
